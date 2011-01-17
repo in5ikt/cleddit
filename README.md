@@ -3,4 +3,4 @@
 ## Dependencies
 
 *  `Python >= 3.0`
-*  `termcolor`
+*  `colorama`

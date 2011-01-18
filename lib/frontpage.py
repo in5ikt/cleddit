@@ -1,6 +1,8 @@
-B0;136;0cimport urllib.request, urllib.parse, json, pprint, colorama
+import urllib.request, urllib.parse, json, pprint, colorama
 from colorama import Fore, Back, Style
+
 colorama.init()
+
 def get_frontpage_json(subreddit = None):
     '''
     Retrieves JSON fron the reddit servers and returns it

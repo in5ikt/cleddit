@@ -22,18 +22,13 @@ def render(subreddit = None):
         if type( x ) is dict:
             if x['data']['over_18']:
                 x['data']['title'] = Fore.RED + x['data']['title'] + Fore.RESET
-            if x['data']['is_self']:
-                print('> {title}\n - {selftext}\n| {url}\n| {author}\n'.format(title=Style.BRIGHT + x['data']['title'] + Style.RESET_ALL,
-                                                                                author=x['data']['author'],
-                                                                                url=x['data']['url'],
-                                                                                selftext=x['data']['selftext'],
-                                                                                ))
-
-            else:
-                print('> {title}\n| {url}\n| {author}\n'.format(title=Style.BRIGHT + x['data']['title'] + Style.RESET_ALL,
-                                                                author=x['data']['author'],
-                                                                url=x['data']['url'],
-                                                                ))
+            
+            print('> {title}\n{selftext}| {url}\n| {author}\n'.format(
+                        title=Style.BRIGHT + x['data']['title'] + Style.RESET_ALL,
+                        author=Style.DIM + x['data']['author'] + Style.RESET_ALL,
+                        selftext=' - ' + x['data']['selftext'] if x['data']['is_self'] else '',
+                        url=x['data']['url'],
+                        ))
 
 if __name__ == '__main__':
     render()
